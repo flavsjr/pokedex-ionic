@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pokedex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar [(ngModel)]="buscar" placeholder="Buscar Pokémon"></ion-searchbar>
+
+  <ion-item *ngFor="let pokemon of pokemons | pokemonName: buscar">
+    <img slot="start" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/firered-leafgreen/{{ pokemon.entry_number }}.png">
+    <ion-label> {{ pokemon.pokemon_species.name | uppercase }} </ion-label>
+  </ion-item>
+</ion-content>
