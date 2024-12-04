@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/pokedex" routerDirection="backward" text="Voltar"></ion-back-button>
     </ion-buttons>
     <ion-title>
-      {{ pokemon.name }}
+      {{ pokemon.name | uppercase }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -24,7 +24,7 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let stat of pokemon.stats">
-          {{ stat.stat.name }} <span slot="end">{{ stat.base_stat}}</span>
+          {{ stat.stat.name | uppercase }}: <span slot="end">{{ stat.base_stat }}</span>
         </ion-item>
       </ion-list>
 
