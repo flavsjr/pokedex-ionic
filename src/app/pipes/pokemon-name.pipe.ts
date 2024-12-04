@@ -1,18 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'pokemonName',
-  standalone: true
+  name: 'pokemonName'
 })
 export class PokemonNamePipe implements PipeTransform {
 
-  transform(pokemons: any[], name: string): any[] {
-    if (!name || !pokemons) {
-      return pokemons;
-    }
+  /**
+   *
+   * @param value
+   * @param args
+   */
+  transform(pokemon_entries: any, name: string) {
 
-    return pokemons.filter(item =>
-      item.pokemon_species.name.toLowerCase().includes(name.toLowerCase())
+    if (name == null || name == undefined || name == '')
+      return pokemon_entries;
+
+    return pokemon_entries.filter((item: { pokemon_species: { name: string; }; }) =>
+       item.pokemon_species.name.toLowerCase().includes(name.toLocaleLowerCase())
     );
   }
 }

@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-const routes: Routes = [
-  {
-    path: '',
-  },
-];
+import { IonicModule } from '@ionic/angular';
+
+import { PokedexPageRoutingModule } from './pokedex-routing.module';
+
+import {PipesModule} from '../../pipes/pipes.module';
+import { PokedexPage } from './pokedex.page';
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    PokedexPageRoutingModule,
+    PipesModule
+  ],
+  declarations: [PokedexPage]
 })
-export class PokedexPageRoutingModule {}
+export class PokedexPageModule {}

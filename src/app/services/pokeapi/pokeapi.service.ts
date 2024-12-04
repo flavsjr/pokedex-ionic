@@ -1,22 +1,48 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { PokedexResponse } from 'src/app/models/pokedex.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokeapiService {
 
-  private apiUrl = "https://pokeapi.co/api/v2/pokedex/2"; // URL da API
+  constructor(public http: HttpClient) {}
 
-  constructor(public http: HttpClient) { }
+  /**
+   *
+   * @returns
+   */
+  getPokedex() {
 
-  getPokedex(): Promise<PokedexResponse> {
     return new Promise((resolve, reject) => {
-      this.http.get<PokedexResponse>(this.apiUrl).subscribe(
-        (data) => resolve(data),
-        (err) => reject(err)
-      );
+
+      this.http.get("https://pokeapi.co/api/v2/pokedex/2").subscribe((data: any) => {
+        return resolve(data);
+      }, (err: any) => {
+        return reject(err);
+      })
+
     });
+
   }
+
+  /**
+   *
+   * @param pokemonId
+   * @returns
+   */
+  getPokemon(pokemonId: string) {
+
+    return new Promise((resolve, reject) => {
+
+      this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).subscribe((data: any) => {
+        return resolve(data);
+      }, (err: any) => {
+        return reject(err);
+      })
+
+    });
+
+  }
+
 }

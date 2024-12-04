@@ -1,8 +1,10 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { PokemonNamePipe } from "./pokemon-name.pipe";
 
 @NgModule({
-  imports: [PokemonNamePipe],
+  declarations: [PokemonNamePipe],
+  imports: [],
+  exports: [PokemonNamePipe],
 })
 
 export class PipesModule {}
