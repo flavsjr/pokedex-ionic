@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   public appPages = [
-    { title: 'Pokedex', url: '/pokedex', icon: 'paper-plane' }
+    { title: 'Pokedex', url: '/pokedex', icon: 'fa-code' }
   ];
 
   constructor() {}
